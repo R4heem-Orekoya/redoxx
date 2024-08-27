@@ -54,7 +54,7 @@ const BlogTemplate = ({ slug }: { slug: string }) => {
                   <span>{" " + data.timeToRead} min read</span>
                </p>
                
-               <div className="text-muted-foreground py-6 prose max-sm:prose-ul:list-none max-sm:prose-ul:p-0 max-sm:prose-ul:text-sm prose-strong:text-white prose-h2:text-white max-sm:prose-p:text-sm">
+               <div className="text-white py-6 prose max-sm:prose-ul:p-0 prose-strong:text-white prose-h2:text-white">
                   <PortableText 
                      value={data.content}
                      components={components}

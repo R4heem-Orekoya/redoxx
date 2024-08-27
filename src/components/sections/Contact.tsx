@@ -8,7 +8,7 @@ const Contact = () => {
             <SectionHeading title="Contact" className="mx-auto" hasLine={false} />
             <p className="text-center max-sm:text-sm mt-4 text-muted-foreground">
                Shoot me an email if you want to connect! 
-               You can also find me on <span className="text-white font-medium hover:underline"><a href="#">Twitter</a></span> or <span className="text-white font-medium hover:underline"><a href="#">Instagram </a></span> 
+               You can also find me on <span className="text-white font-medium hover:underline"><a href="x.com/Redoxx_code">Twitter</a></span> or <span className="text-white font-medium hover:underline"><a href="instagram.com/redoxx_code">Instagram </a></span> 
                if that&apos;s more your speed.
             </p>
             <a href="mailto:raheemorekoya1@gmail.com" className="flex items-center justify-center gap-2 mt-4 opacity-70 hover:opacity-100 max-sm:text-sm">

@@ -9,7 +9,7 @@ const About = () => {
          <SectionHeading title="About"/>
          <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mt-12">
             <div className="col-span-1 md:col-span-4">
-               <div className="grid gap-4 max-sm:text-sm text-muted-foreground">
+               <div className="grid gap-4 text-white">
                   <p>
                      Hey! I&apos;m Raheem, a full-stack developer from Nigeria 
                      with a passion for coding and mathematics. I specialize 
