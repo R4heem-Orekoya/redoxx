@@ -1,16 +1,16 @@
-import About from "@/components/sections/About"
+import Error from "@/components/Error"
 import Blogs from "@/components/sections/Blogs"
 import Contact from "@/components/sections/Contact"
-import Header from "@/components/sections/Header"
+import Hero from "@/components/sections/Hero"
 import Projects from "@/components/sections/Projects"
+
 
 const Page = () => {
   return (
     <>
-      <Header />
-      <About />
-      <Projects />
+      <Hero />
       <Blogs />
+      <Projects />
       <Contact />
     </>
   )

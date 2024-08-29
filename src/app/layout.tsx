@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import TanstackQueryProvider from "@/components/wrappers.tsx/TanstackQuery";
 import "./globals.css";
+import Providers from "@/components/wrappers.tsx/Providers";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Redoxx",
@@ -9,13 +11,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en">
-      <body className="dark font-Montserrat antialiased relative bg-neutral-950 text-white">
-        <main className="w-[min(900px,90%)] mx-auto py-20">
-          <TanstackQueryProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-Montserrat antialiased">
+        <Providers>
+          <Navbar />
+          <main className="w-[90%] max-w-3xl mx-auto">
             {children}
-          </TanstackQueryProvider>
-        </main>
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

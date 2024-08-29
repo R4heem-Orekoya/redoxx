@@ -34,12 +34,12 @@ const BlogTemplate = ({ slug }: { slug: string }) => {
    }
    
    return (
-      <section className="max-w-2xl mx-auto">
+      <section className="max-w-3xl mx-auto">
          <Link 
             href="/" 
             className={buttonVariants({ 
-               variant: "secondary", 
-               className: "no-underline flex items-center gap-1 group" 
+               variant: "link", 
+               className: "no-underline flex items-center gap-1 group px-0" 
             })}
          >  
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 duration-300"/>
@@ -54,7 +54,7 @@ const BlogTemplate = ({ slug }: { slug: string }) => {
                   <span>{" " + data.timeToRead} min read</span>
                </p>
                
-               <div className="text-white py-6 prose max-sm:prose-ul:p-0 prose-strong:text-white prose-h2:text-white">
+               <div className="py-6 prose dark:prose-invert">
                   <PortableText 
                      value={data.content}
                      components={components}

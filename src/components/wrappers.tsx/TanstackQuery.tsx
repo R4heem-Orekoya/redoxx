@@ -9,7 +9,7 @@ interface TanstackQueryProviderProps {
 
 const queryClient = new QueryClient()
 
-const TanstackQueryProvider = ({ children }: TanstackQueryProviderProps) => {
+const TanstackQuery = ({ children }: TanstackQueryProviderProps) => {
    return (
       <QueryClientProvider client={queryClient}>
          {children}
@@ -17,4 +17,4 @@ const TanstackQueryProvider = ({ children }: TanstackQueryProviderProps) => {
    )
 }
 
-export default TanstackQueryProvider
+export default TanstackQuery

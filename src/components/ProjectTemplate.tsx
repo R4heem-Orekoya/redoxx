@@ -31,11 +31,11 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
    if (isError) return <Error />
    
    return (
-      <section className="max-w-2xl mx-auto">
+      <section className="max-w-3xl mx-auto">
          <Link 
             href="/" 
             className={buttonVariants({ 
-               variant: "secondary", 
+               variant: "link", 
                className: "no-underline flex items-center gap-1 group" 
             })}
          >  
@@ -59,7 +59,7 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
                      </span>
                   ))}
                </p>
-               <div className="text-muted-foreground py-6 prose prose-strong:text-white max-sm:prose-p:text-sm">
+               <div className="py-6 prose dark:prose-invert">
                   <PortableText 
                      value={data.description}
                      components={components}
