@@ -21,24 +21,18 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
    
    if (isLoading){
       return (
-         <div className="py-16 flex flex-col gap-2 justify-center items-center">
+         <div className="flex flex-col gap-2 justify-center items-center min-h-[80vh]">
             <Loader2 className="w-10 h-10 animate-spin" strokeWidth={1.6}/>
             <p className="text-sm text-muted-foreground font-medium">Loading please wait ...</p>
          </div>
       )
    } 
    
-   if (isError) return <Error />
+   if (isError) return <div className="pt-12 flex justify-center min-h-[90vh]"><Error /></div>
    
    return (
-      <section className="max-w-3xl mx-auto">
-         <Link 
-            href="/" 
-            className={buttonVariants({ 
-               variant: "link", 
-               className: "no-underline flex items-center gap-1 group" 
-            })}
-         >  
+      <section className="max-w-3xl mx-auto py-6">
+         <Link href="/" className="w-fit flex items-center gap-1 hover:underline group">  
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 duration-300"/>
             Go back
          </Link>
@@ -48,7 +42,7 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
                <img 
                   src={urlFor(data.thumbnail.asset._ref)} 
                   alt={data.title} 
-                  className="w-full aspect-[16/10] object-cover rounded-lg mt-8"
+                  className="w-full aspect-[16/10] object-cover border rounded-lg mt-8"
                />
                <h2 className="pt-8 pb-1 text-xl md:text-2xl lg:text-3xl font-semibold">{data.title}</h2>
                <p className="text-muted-foreground text-sm">
@@ -59,7 +53,7 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
                      </span>
                   ))}
                </p>
-               <div className="py-6 prose dark:prose-invert">
+               <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover max-sm:prose-sm prose-p:font-light prose-ul:font-light dark:prose-invert">
                   <PortableText 
                      value={data.description}
                      components={components}

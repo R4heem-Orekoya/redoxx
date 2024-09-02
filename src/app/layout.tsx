@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-Montserrat antialiased">
+      <body className="font-Montserrat antialiased py-12">
         <Providers>
           <Navbar />
-          <main className="w-[90%] max-w-3xl mx-auto">
+          <main className="container max-w-3xl mx-auto">
             {children}
           </main>
           <Footer />

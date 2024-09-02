@@ -1,4 +1,4 @@
-import { Github, Instagram, Laugh, Terminal, Twitter } from "lucide-react";
+import { Github, Instagram, Send, Terminal, Twitter } from "lucide-react";
 import { PortableTextComponents } from "@portabletext/react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -8,19 +8,24 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export const Socials = [
   {
-    title: "Twitter",
-    link: "x.com/Redoxx_code",
-    icon: <Twitter className="w-5 h-5 text-muted-foreground hover:text-primary duration-300" strokeWidth={1.6}/>
+    title: "Mail",
+    link: "mailto:raheemorekoya1@gmail.com",
+    icon: <Send className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
   },
   {
     title: "Github",
     link: "https://github.com/R4heem-Orekoya",
-    icon: <Github className="w-5 h-5 text-muted-foreground hover:text-primary duration-300" strokeWidth={1.6}/>
+    icon: <Github className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
+  },
+  {
+    title: "Twitter",
+    link: "https://x.com/Redoxx_code",
+    icon: <Twitter className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
   },
   {
     title: "Instagram",
-    link: "instagram.com/redoxx_code",
-    icon: <Instagram className="w-5 h-5 text-muted-foreground hover:text-primary duration-300" strokeWidth={1.6}/>
+    link: "https://instagram.com/redoxx_code",
+    icon: <Instagram className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
   }
 ]
 

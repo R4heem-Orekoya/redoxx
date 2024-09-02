@@ -8,7 +8,6 @@ const ProjectSkeleton = () => {
             <li key={i} className="grid gap-2">
                <Skeleton className="aspect-video rounded-md "/>
                <Skeleton className="h-4 max-sm:h-3 rounded-sm w-full sm:mt-2"/>
-               <Skeleton className="h-4 max-sm:h-3 rounded-sm w-1/3"/>
                <Skeleton className="h-4 max-sm:h-3 rounded-sm w-2/3"/>
             </li> 
          ))}

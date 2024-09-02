@@ -75,7 +75,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        Montserrat: ["Montserrat", "serif"]
+        Montserrat: ["Nunito Sans", "serif"]
       }
     },
   },

@@ -2,12 +2,12 @@ import { Socials } from "@/lib/constants"
 
 const Footer = () => {
    return (
-      <footer className="w-[90%] max-w-3xl py-12 mx-auto flex max-sm:flex-col-reverse gap-6 items-center justify-between">
-         <p className="text-xs text-muted-foreground">© 2024 Your Company. All rights reserved.</p>
+      <footer className="pt-12 flex justify-between flex-wrap items-center gap-4 container max-w-3xl mx-auto">
+         <p className="text-sm text-muted-foreground font-medium">Raheem Orekoya</p>
          
-         <ul className="flex items-center gap-4">
-            {Socials.map((social) => (
-               <li key={social.title}>
+         <ul className="flex gap-4 items-center">
+            {Socials.map((social, i) => (
+               <li key={i} className="hover:opacity-85">
                   <a href={social.link}>{social.icon}</a>
                </li>
             ))}
