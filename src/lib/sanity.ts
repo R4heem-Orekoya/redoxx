@@ -10,8 +10,8 @@ const client = createClient({
 
 const builder = imageUrlBuilder(client)
 
-export const urlFor = (src: string) => {
-   return builder.image(src) as unknown as string
+export const urlFor = (src: any) => {
+   return builder.image(src)
 }
 
 export default client

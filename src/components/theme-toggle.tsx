@@ -21,6 +21,7 @@ export function ModeToggle() {
          onClick={() => {
             setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
          }}
+         aria-label="theme toggle"
       >
          {resolvedTheme === 'dark' ? (
             <SunIcon className='w-4 h-4 text-violet-500' />

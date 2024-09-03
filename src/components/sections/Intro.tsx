@@ -37,7 +37,7 @@ const Intro = () => {
                      key={social.title} 
                      className="size-8 sm:size-9 overflow-hidden bg-secondary rounded-full text-secondary-foreground hover:bg-secondary/80"
                   >
-                     <a href={social.link} className="size-8 sm:size-9 grid place-content-center">
+                     <a aria-label={`link to my ${social.title} account`} href={social.link} className="size-8 sm:size-9 grid place-content-center">
                         {social.icon}
                      </a>
                   </li>

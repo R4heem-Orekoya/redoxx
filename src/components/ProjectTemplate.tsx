@@ -9,6 +9,7 @@ import Error from "./Error";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { components } from "@/lib/constants";
+import Image from "next/image";
 
 const ProjectTemplate = ({ slug }: { slug: string }) => {
    const { data, isLoading, isError } = useQuery({
@@ -39,11 +40,13 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
          
          {data && (
             <>
-               <img 
-                  src={urlFor(data.thumbnail.asset._ref)} 
-                  alt={data.title} 
-                  className="w-full aspect-[16/10] object-cover border rounded-lg mt-8"
-               />
+               <div className="relative w-full aspect-[16/10] border rounded-lg overflow-hidden mt-8">
+                  <Image 
+                     src={urlFor(data.thumbnail).url()} 
+                     fill objectFit="cover"
+                     alt={data.title} 
+                  />
+               </div>
                <h2 className="pt-8 pb-1 text-xl md:text-2xl lg:text-3xl font-semibold">{data.title}</h2>
                <p className="text-muted-foreground text-sm">
                   {data.techStack.map((stack, i) => (
