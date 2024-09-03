@@ -41,13 +41,13 @@ const BlogTemplate = ({ slug }: { slug: string }) => {
          
          {data && (
             <>
-               <h2 className="pt-8 pb-1 sm:texlgt- md:text-xl lg:text-2xl font-semibold">{data.title}</h2>
+               <h2 className="pt-8 pb-1 text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">{data.title}</h2>
                <p className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
                   <span>{formatDate(data.datePublished)}</span> . 
                   <span>{" " + data.timeToRead} min read</span>
                </p>
                
-               <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover max-sm:prose-sm prose-p:font-light prose-ul:font-light dark:prose-invert">
+               <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover sm:prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
                   <PortableText 
                      value={data.content}
                      components={components}

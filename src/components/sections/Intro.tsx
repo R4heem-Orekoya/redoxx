@@ -6,24 +6,24 @@ const Intro = () => {
    return (
       <section className="py-8 grid gap-8 items-center max-w-xl">
          <div>
-            <h1 className="title">Raheem Orekoya</h1>
+            <h1 className="text-lg font-semibold">Raheem Orekoya</h1>
             <p className="text-muted-foreground text-sm">
                Fullstack developer
             </p>
             <p className="text-muted-foreground text-sm">Lagos, Nigeria</p>
          </div>
          <div>
-            <h2 className="title mb-4">From Visual Concepts to Functional Code</h2>
-            <p className="text-muted-foreground text-sm">
-               Specializing in frontend development with <b className="text-primary">React Js</b> and <b className="text-primary">Next.js</b>. 
-               I have a strong passion for creating dynamic and responsive web 
-               applications. In addition to my frontend skills, I have experience 
-               in backend development using <b className="text-primary">Node.js</b>, <b className="text-primary">JavaScript</b>, and <b className="text-primary">Rust</b>.
+            <h2 className="text-lg font-semibold mb-3">Crafting Digital Experiences: From Idea to Implementation</h2>
+            <p className="text-muted-foreground">
+               I specialize in frontend development using <span className="text-primary font-semibold">React</span> and <span className="text-primary font-semibold">Next.js</span>, 
+               with a strong passion for crafting dynamic and responsive web 
+               applications. Additionally, I have experience in backend development 
+               using <span className="text-primary font-semibold">Node.js</span> and <span className="text-primary font-semibold">Express js</span>. 
             </p>
-            <p className="text-muted-foreground text-sm mt-3">
-               Alongside my development skills, I also have experience in UI 
-               design using Figma, which allows me to create visually appealing 
-               and user-friendly interfaces.
+            <p className="text-muted-foreground mt-3">
+               To complement my technical skills, I also have little experience in 
+               UI design using <span className="text-primary font-semibold">Figma</span>,
+               allowing me to create visually appealing and user-friendly interfaces.
             </p>
          </div>
          <div className="flex flex-wrap gap-4 sm:gap-8">

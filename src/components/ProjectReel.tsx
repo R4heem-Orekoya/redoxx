@@ -33,9 +33,9 @@ const ProjectReel = ({ } : ProjectReelProps) => {
                <Link href={`/project/${project.slug.current}`} className="relative block aspect-video rounded-md bg-secondary overflow-hidden px-6 max-sm:px-4">
                   <img src={urlFor(project.thumbnail.asset._ref)} alt={project.title} className="w-full h-full object-cover translate-y-8 max-sm:translate-y-6 rounded-md hover:translate-y-6 max-sm:hover:translate-y-4 hover:rotate-2 hover:scale-[1.03] duration-300"/>
                </Link>
-               <div className="flex items-center gap-4 pt-3 pb-1">
+               <div className="flex items-center justify-between gap-4 pt-3 pb-1">
                   <h3 className="font-medium">{project.title}</h3>
-                  <Separator className="flex-1"/>
+                  {/* <Separator className="flex-1"/> */}
                   <ul className="flex items-center gap-3">
                      <li>
                         <a href={project.githubLink}>
@@ -49,7 +49,7 @@ const ProjectReel = ({ } : ProjectReelProps) => {
                      </li>
                   </ul>
                </div>
-               <p className="text-muted-foreground text-sm">
+               <p className="text-muted-foreground text-xs sm:text-sm">
                   {project.techStack.map((stack, i) => (
                      <span key={i}>
                         {stack}

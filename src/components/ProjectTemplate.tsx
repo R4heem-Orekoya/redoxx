@@ -53,7 +53,7 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
                      </span>
                   ))}
                </p>
-               <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover max-sm:prose-sm prose-p:font-light prose-ul:font-light dark:prose-invert">
+               <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover sm:prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
                   <PortableText 
                      value={data.description}
                      components={components}

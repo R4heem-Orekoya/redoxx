@@ -10,22 +10,22 @@ export const Socials = [
   {
     title: "Mail",
     link: "mailto:raheemorekoya1@gmail.com",
-    icon: <Send className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
+    icon: <Send className="w-4 h-4" strokeWidth={1.7}/>
   },
   {
     title: "Github",
     link: "https://github.com/R4heem-Orekoya",
-    icon: <Github className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
+    icon: <Github className="w-4 h-4" strokeWidth={1.7}/>
   },
   {
     title: "Twitter",
     link: "https://x.com/Redoxx_code",
-    icon: <Twitter className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
+    icon: <Twitter className="w-4 h-4" strokeWidth={1.7}/>
   },
   {
     title: "Instagram",
     link: "https://instagram.com/redoxx_code",
-    icon: <Instagram className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.7}/>
+    icon: <Instagram className="w-4 h-4" strokeWidth={1.7}/>
   }
 ]
 
