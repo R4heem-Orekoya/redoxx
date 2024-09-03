@@ -47,6 +47,6 @@ export const components: PortableTextComponents = {
           </SyntaxHighlighter>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>,
-      image: ({ value }) => <img src={urlFor(value.asset._ref)} className="w-full aspect-video object-cover rounded-md"/>
+      image: ({ value }) => <img src={urlFor(value.asset).url()} className="w-full aspect-video object-cover rounded-md"/>
    }
 }

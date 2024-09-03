@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Redoxx Project | ${project[0]?.title}`,
       description: project[0]?.excerpt,
       openGraph: {
-         url: urlFor(project[0]?.thumbnail.asset._ref)
+         url: urlFor(project[0]?.thumbnail).url()
       }
    }
 }

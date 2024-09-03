@@ -1,6 +1,6 @@
 "use client"
 
-import client, { urlFor } from "@/lib/sanity"
+import client from "@/lib/sanity"
 import { Blog } from "@/types/sanity"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
