@@ -8,14 +8,30 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
    const slug = params.slug
-   
    const blog = await client.fetch(`*[_type == 'blogs' && slug.current == '${slug}'] {title, excerpt, thumbnail}`)
    
+   if(!blog){
+      return {
+         title: "Redoxx Blog Post",
+         description: "This is a blog post written by redoxx."
+      }
+   }
+   
    return {
-      title: `Redoxx Blog | ${blog[0]?.title}`,
-      description: blog[0]?.excerpt,
+      title: blog[0].title,
+      description: blog[0].excerpt,
       openGraph: {
-         url: urlFor(blog[0]?.thumbnail).url()
+         title: blog[0].title,
+         description: blog[0].excerpt,
+         siteName: "redoxx",
+         images: [
+           {
+               url: urlFor(blog[0].thumbnail).url(),
+               width: 1260,
+               height: 800
+           } 
+         ],
+         url: `/blog/${slug}`
       }
    }
 }
