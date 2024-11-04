@@ -7,9 +7,9 @@ import { PortableText } from "@portabletext/react";
 import { ArrowLeft, ExternalLink, Github, Loader2 } from "lucide-react";
 import Error from "./Error";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
 import { components } from "@/lib/constants";
 import Image from "next/image";
+import { useEffect } from "react"
 
 const ProjectTemplate = ({ slug }: { slug: string }) => {
    const { data, isLoading, isError } = useQuery({
@@ -22,7 +22,7 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
    
    if (isLoading){
       return (
-         <div className="flex flex-col gap-2 justify-center items-center min-h-[80vh]">
+         <div className="flex flex-col gap-2 justify-center items-center">
             <Loader2 className="w-10 h-10 animate-spin" strokeWidth={1.6}/>
             <p className="text-sm text-muted-foreground font-medium">Loading please wait ...</p>
          </div>
@@ -40,10 +40,10 @@ const ProjectTemplate = ({ slug }: { slug: string }) => {
          
          {data && (
             <>
-               <div className="relative w-full aspect-[16/10] border rounded-lg overflow-hidden mt-8">
+               <div className="relative w-full aspect-[16/9] border rounded-lg overflow-hidden mt-8">
                   <Image 
                      src={urlFor(data.thumbnail).url()} 
-                     fill objectFit="cover"
+                     fill objectFit="contain"
                      alt={data.title} 
                   />
                </div>
