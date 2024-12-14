@@ -1,44 +1,85 @@
-import BlogTemplate from "@/components/BlogTemplate"
-import client, { urlFor } from "@/lib/sanity"
-import { Metadata } from "next"
+import { components } from "@/components/syntax-highlighting/portabletext-component"
+import { sanityFetch } from "@/lib/sanity/live"
+import { blogQuery } from "@/lib/sanity/queries"
+import { resolveOpenGraphImage } from "@/lib/sanity/utils"
+import { formatDate } from "@/lib/utils"
+import { Blog } from "@/types/sanity"
+import { ArrowLeft } from "lucide-react"
+import { Metadata, ResolvingMetadata } from "next"
+import { PortableText } from "next-sanity"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+
+export const dynamic = "force-dynamic"
 
 interface Props {
-   params: { slug: string }
+   params: Promise<{ slug: string }>
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-   const slug = params.slug
-   const blog = await client.fetch(`*[_type == 'blogs' && slug.current == '${slug}'] {title, excerpt, thumbnail}`)
-   
-   if(!blog){
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+   const params = await props.params
+   const { data } = await sanityFetch({
+      query: blogQuery,
+      params,
+   })
+
+   const blog: Blog = data
+
+   if (!blog._id) {
       return {
          title: "Redoxx Blog Post",
          description: "This is a blog post written by redoxx."
       }
    }
-   
+
+   const previousImages = (await parent).openGraph?.images || [];
+   const ogImage = resolveOpenGraphImage(blog.thumbnail);
+
    return {
-      title: blog[0].title,
-      description: blog[0].excerpt,
+      title: blog.title,
+      description: blog.excerpt,
       openGraph: {
-         title: blog[0].title,
-         description: blog[0].excerpt,
+         title: blog.title,
+         description: blog.excerpt,
          siteName: "redoxx",
-         images: [
-           {
-               url: urlFor(blog[0].thumbnail).url(),
-               width: 1260,
-               height: 800
-           } 
-         ],
-         url: `/blog/${slug}`
+         images: ogImage ? [ogImage, ...previousImages] : previousImages,
       }
-   }
+   } satisfies Metadata
 }
 
-const Page = ({ params }: Props) => {
+const Page = async ({ params }: Props) => {
+   const slug = await params
+   const { data } = await sanityFetch({
+      query: blogQuery,
+      params: slug,
+   })
+
+   const project: Blog = data
+
+   if (!project._id) return notFound()
+
    return (
-      <BlogTemplate slug={params.slug}/>
+      <main>
+         <Link href="/" className="w-fit flex items-center gap-1 hover:underline group">
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 duration-300" />
+            Go back
+         </Link>
+
+         <section className="pt-8">
+            <h2 className="pb-1 text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">{data.title}</h2>
+            <p className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+               <span>{formatDate(data.datePublished)}</span> .
+               <span>{" " + data.timeToRead} min read</span>
+            </p>
+
+            <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover sm:prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
+               <PortableText
+                  value={data.content}
+                  components={components}
+               />
+            </div>
+         </section>
+      </main>
    )
 }
 

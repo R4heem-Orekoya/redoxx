@@ -21,9 +21,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${nunito_sans.variable} font-Nunito antialiased py-12`}>
         <Providers>
           <Navbar />
-          <main className="container max-w-3xl mx-auto min-h-[calc(100vh-154px)]">
+          <div className="container max-w-3xl mx-auto">
             {children}
-          </main>
+          </div>
           <Footer />
         </Providers>
       </body>

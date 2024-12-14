@@ -1,39 +1,25 @@
-"use client"
-
-import client, { urlFor } from "@/lib/sanity"
-import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import { Project } from "@/types/sanity"
 import { ExternalLink, Github } from "lucide-react"
-import ProjectSkeleton from "./skeleton-loaders/ProjectSkeleton"
-import Error from "./Error"
 import Image from "next/image"
+import { sanityFetch } from "@/lib/sanity/live"
+import { allProjectsQuery } from "@/lib/sanity/queries"
+import { urlForImage } from "@/lib/sanity/utils"
 
-interface ProjectReelProps{
-    
-}
-
-const ProjectReel = ({ } : ProjectReelProps) => {
-   const { data: projects, isLoading, isError } = useQuery({
-      queryKey: ["projects"],
-      queryFn: async () => {
-         const res = await client.fetch(`*[_type == 'projects']| order(_createdAt desc)`) as Project[]
-         return res
-      }
+const ProjectReel = async () => {
+   const { data } = await sanityFetch({
+      query: allProjectsQuery
    })
-   
-   if(isLoading) return <ProjectSkeleton />
-   
-   if(isError) return <Error error="Error fetching projects 🥲!!"/>
+   const projects: Project[] = data
    
    return (
-      <ul className="grid md:grid-cols-2 gap-6 mt-8">
+      <ul className="grid md:grid-cols-2 gap-4 mt-8">
          {projects && projects.map((project: Project) => (
             <li key={project._id} className="col-span-1">
                <Link href={`/project/${project.slug.current}`} className="block aspect-video rounded-md bg-secondary overflow-hidden px-4 max-sm:px-4">
                   <div className="relative w-full h-full rounded-md bg-muted-foreground overflow-hidden translate-y-4 hover:translate-y-6 hover:rotate-2 hover:scale-[1.05] duration-300">
                      <Image
-                        src={urlFor(project.thumbnail).url()}
+                        src={urlForImage(project.thumbnail)?.auto("format").url() as string}
                         className="rounded" 
                         alt={project.title} fill objectFit="contain"
                      />

@@ -1,25 +1,14 @@
-"use client"
-
-import client from "@/lib/sanity"
 import { Blog } from "@/types/sanity"
-import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
-import BlogSkeleton from "./skeleton-loaders/BlogSkeleton"
-import Error from "./Error"
 import { formatDate } from "@/lib/utils"
+import { sanityFetch } from "@/lib/sanity/live"
+import { allBlogsQuery } from "@/lib/sanity/queries"
 
-const BlogReels = () => {
-   const { data: blogs, isLoading, isError } = useQuery({
-      queryKey: ["blogs"],
-      queryFn: async () => {
-         const res = await client.fetch(`*[_type == 'blogs']| order(_createdAt desc)`) as Blog[]
-         return res         
-      }
+const BlogReels = async () => {
+   const { data } = await sanityFetch({
+      query: allBlogsQuery
    })
-   
-   if(isLoading) return <BlogSkeleton />
-   
-   if(isError) return <Error error="Error fetching blog posts 🥲"/>
+   const blogs: Blog[] = data
    
    return (
       <ul className="mt-8 grid gap-6">

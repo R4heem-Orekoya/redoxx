@@ -10,7 +10,7 @@ export const repeat = (times: number) => {
 }
 
 export const formatDate = (dateString: string) => {
-  const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' };
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', options);
 }

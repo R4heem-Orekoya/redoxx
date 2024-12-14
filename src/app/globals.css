@@ -60,8 +60,6 @@
 }
 
 
-
-
 @layer base {
   * {
     @apply border-border;
@@ -88,4 +86,6 @@
   }
 }
 
-
+.shiki-div pre {
+  margin: 0;
+}
