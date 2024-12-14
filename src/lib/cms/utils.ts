@@ -1,5 +1,5 @@
 import createImageUrlBuilder from "@sanity/image-url";
-import { dataset, projectId, studioUrl } from "@/lib/sanity/api";
+import { dataset, projectId, studioUrl } from "@/lib/cms/api";
 import { createDataAttribute, CreateDataAttributeProps } from "next-sanity";
 
 const imageBuilder = createImageUrlBuilder({

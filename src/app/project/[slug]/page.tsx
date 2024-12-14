@@ -1,6 +1,6 @@
-import { sanityFetch } from "@/lib/sanity/live";
-import { projectQuery } from "@/lib/sanity/queries";
-import { resolveOpenGraphImage, urlForImage } from "@/lib/sanity/utils";
+import { sanityFetch } from "@/lib/cms/live";
+import { projectQuery } from "@/lib/cms/queries";
+import { resolveOpenGraphImage, urlForImage } from "@/lib/cms/utils";
 import { Project } from "@/types/sanity";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Metadata, ResolvingMetadata } from "next";

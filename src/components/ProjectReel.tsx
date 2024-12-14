@@ -2,9 +2,9 @@ import Link from "next/link"
 import { Project } from "@/types/sanity"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
-import { sanityFetch } from "@/lib/sanity/live"
-import { allProjectsQuery } from "@/lib/sanity/queries"
-import { urlForImage } from "@/lib/sanity/utils"
+import { sanityFetch } from "@/lib/cms/live"
+import { allProjectsQuery } from "@/lib/cms/queries"
+import { urlForImage } from "@/lib/cms/utils"
 
 const ProjectReel = async () => {
    const { data } = await sanityFetch({

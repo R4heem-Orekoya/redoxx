@@ -1,4 +1,4 @@
-import { urlForImage } from "@/lib/sanity/utils";
+import { urlForImage } from "@/lib/cms/utils";
 import Image from "next/image";
 import CodeBlock from "./code";
 import { PortableTextComponents } from "next-sanity";

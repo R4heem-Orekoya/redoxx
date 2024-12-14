@@ -1,8 +1,8 @@
 import { Blog } from "@/types/sanity"
 import Link from "next/link"
 import { formatDate } from "@/lib/utils"
-import { sanityFetch } from "@/lib/sanity/live"
-import { allBlogsQuery } from "@/lib/sanity/queries"
+import { sanityFetch } from "@/lib/cms/live"
+import { allBlogsQuery } from "@/lib/cms/queries"
 
 const BlogReels = async () => {
    const { data } = await sanityFetch({
