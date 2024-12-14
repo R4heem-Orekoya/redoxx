@@ -1,7 +1,6 @@
 'use client'
 
 import { PropsWithChildren } from "react"
-import TanstackQuery from "./TanstackQuery"
 import Sonner from "./Sonner"
 import Theme from "./Theme"
 import { ReactLenis } from '@/lib/lenis'
@@ -12,10 +11,8 @@ const Providers = ({ children }: ProvidersProps) => {
    return (
       <Theme>
          <ReactLenis root>
-            <TanstackQuery>
-               {children}
-               <Sonner />
-            </TanstackQuery>
+            {children}
+            <Sonner />
          </ReactLenis>
       </Theme>
    )

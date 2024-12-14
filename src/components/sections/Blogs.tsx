@@ -1,6 +1,4 @@
-import Link from "next/link"
 import BlogReels from "../BlogReels"
-import { ArrowUp } from "lucide-react"
 
 const Blogs = () => {
    return (

@@ -1,6 +1,4 @@
 import ProjectReel from "../ProjectReel"
-import Link from "next/link"
-import { ArrowUp } from "lucide-react"
 
 const Projects = () => {
    return (
