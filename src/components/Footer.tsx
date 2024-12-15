@@ -8,7 +8,7 @@ const Footer = () => {
          <ul className="flex gap-4 items-center">
             {Socials.map((social, i) => (
                <li key={i} className="hover:opacity-85">
-                  <a href={social.link} aria-label={`link to my ${social.title} account`}>{social.icon}</a>
+                  <a href={social.link} target="_blank" rel="noopener noreferrer" aria-label={`link to my ${social.title} account`}>{social.icon}</a>
                </li>
             ))}
          </ul>

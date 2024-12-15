@@ -28,8 +28,8 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
    if (!project._id) {
       return {
-         title: "Redoxx Project",
-         description: "This is a project built by redoxx."
+         title: "Raheem's Project",
+         description: "This is a project built by Raheem Orekoya."
       }
    }
 
@@ -37,9 +37,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
    const ogImage = resolveOpenGraphImage(project?.thumbnail);
 
    return {
-      title: `Redoxx project | ${project.title}`,
+      title: `Raheem project | ${project.title}`,
       description: project.excerpt,
-      authors: [{ name: "Orekoya Babatunde" }, { name: "Redoxx" }],
+      authors: [{ name: "Raheem Orekoya" }, { name: "Redoxx" }],
       openGraph: {
          title: project.title,
          description: project.excerpt,

@@ -27,8 +27,8 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
    if (!blog._id) {
       return {
-         title: "Redoxx Blog Post",
-         description: "This is a blog post written by redoxx."
+         title: "Raheem's Blog Post",
+         description: "This is a blog post written by Raheem Orekoya."
       }
    }
 
@@ -38,6 +38,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
    return {
       title: blog.title,
       description: blog.excerpt,
+      authors: [{ name: "Orekoya Babatunde Raheem" }, { name: "Redoxx" }],
       openGraph: {
          title: blog.title,
          description: blog.excerpt,
