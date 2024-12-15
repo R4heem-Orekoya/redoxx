@@ -8,7 +8,8 @@ const projectField = `
    excerpt,
    thumbnail,
    slug,
-   techStack
+   techStack,
+   _updatedAt
 `
 
 const blogField = `
@@ -16,7 +17,8 @@ const blogField = `
    title,
    excerpt,
    datePublished,
-   slug
+   slug,
+   _updatedAt
 `
 
 export const allProjectsQuery = defineQuery(`
