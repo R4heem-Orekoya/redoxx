@@ -9,7 +9,7 @@ const CodeBlock = async ({ code, language }: { code: string, language: string })
    });
 
    return (
-      <ScrollArea className="w-full rounded-md">
+      <ScrollArea className="w-full rounded-md border border-border">
          <div className="shiki-div overflow-x-auto" dangerouslySetInnerHTML={{ __html: html }} />
          <ScrollBar orientation="horizontal" />
       </ScrollArea>
