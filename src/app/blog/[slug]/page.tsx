@@ -73,7 +73,7 @@ const Page = async ({ params }: Props) => {
                <span>{" " + data.timeToRead} min read</span>
             </p>
 
-            <div className="py-6 prose prose-p:text-muted-foreground prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover sm:prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
+            <div className="py-6 prose prose-zinc prose-img:aspect-video prose-img:border prose-img:object-cover prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
                <PortableText
                   value={data.content}
                   components={components}
