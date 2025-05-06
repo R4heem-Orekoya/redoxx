@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import "./globals.css";
 import Providers from "@/components/wrappers.tsx/Providers";
 import Navbar from "@/components/Navbar";
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   }
 };
 
-const nunito_sans = Nunito_Sans({
+const nunito_sans = Inter({
   subsets: ['latin'],
   variable: '--font-nunito',
 })
@@ -55,7 +55,7 @@ const nunito_sans = Nunito_Sans({
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${nunito_sans.variable} font-Nunito antialiased py-12`}>
+      <body className={`${nunito_sans.variable} font-Nunito antialiased py-24`}>
         <Providers>
           <Navbar />
           <div className="container max-w-3xl max-sm:px-6 mx-auto">

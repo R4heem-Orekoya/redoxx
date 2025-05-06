@@ -1,24 +1,19 @@
-import { Github, Linkedin, Send, Twitter } from "lucide-react";
+import { SiMaildotru, SiGithub, SiX } from "react-icons/si"
 
 export const Socials = [
   {
     title: "Mail",
     link: `mailto:${process.env.NEXT_PUBLIC_EMAIL!}`,
-    icon: <Send className="w-4 h-4" strokeWidth={1.7} />
+    icon: <SiMaildotru className="w-4 h-4" strokeWidth={0.2} />
   },
   {
     title: "Github",
     link: process.env.NEXT_PUBLIC_GITHUB_URL!,
-    icon: <Github className="w-4 h-4" strokeWidth={1.7} />
-  },
-  {
-    title: "LinkedIn",
-    link: process.env.NEXT_PUBLIC_LINKEDIN_URL!,
-    icon: <Linkedin className="w-4 h-4" strokeWidth={1.7} />
+    icon: <SiGithub className="w-4 h-4" strokeWidth={0.2} />
   },
   {
     title: "Twitter",
     link: process.env.NEXT_PUBLIC_TWITTER_URL!,
-    icon: <Twitter className="w-4 h-4" strokeWidth={1.7} />
+    icon: <SiX className="w-4 h-4" strokeWidth={0.1} />
   }
 ]

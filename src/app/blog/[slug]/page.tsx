@@ -4,10 +4,8 @@ import { blogQuery } from "@/lib/cms/queries"
 import { resolveOpenGraphImage } from "@/lib/cms/utils"
 import { formatDate } from "@/lib/utils"
 import { Blog } from "@/types/sanity"
-import { ArrowLeft } from "lucide-react"
 import { Metadata, ResolvingMetadata } from "next"
 import { PortableText } from "next-sanity"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 
 export const dynamic = "force-dynamic"
@@ -61,19 +59,14 @@ const Page = async ({ params }: Props) => {
 
    return (
       <main>
-         <Link href="/" className="w-fit flex items-center gap-1 hover:underline group">
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 duration-300" />
-            Go back
-         </Link>
-
-         <section className="pt-8">
-            <h2 className="pb-1 text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">{data.title}</h2>
+         <section className="py-12">
+            <h2 className="pb-2 text-2xl md:text-3xl font-medium">{data.title}</h2>
             <p className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
                <span>{formatDate(data.datePublished)}</span> .
                <span>{" " + data.timeToRead} min read</span>
             </p>
 
-            <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover sm:prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
+            <div className="py-6 dark:prose-invert">
                <PortableText
                   value={data.content}
                   components={components}

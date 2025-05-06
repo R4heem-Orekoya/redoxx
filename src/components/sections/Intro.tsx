@@ -1,45 +1,39 @@
-import { ArrowDownToLine } from "lucide-react"
-import { Button } from "../ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import { Socials } from "@/lib/constants"
+import { SiReaddotcv } from "react-icons/si"
+import Link from "next/link"
 
 const Intro = () => {
    return (
-      <section className="py-8 grid gap-8 items-center max-w-xl">
-         <div>
-            <h1 className="text-lg font-semibold">Raheem Orekoya</h1>
-            <p className="text-muted-foreground text-sm">
-               Fullstack developer
-            </p>
-            <p className="text-muted-foreground text-sm">Lagos, Nigeria</p>
-         </div>
-         <div>
-            <h2 className="text-lg font-semibold mb-3">Crafting Digital Experiences: From Idea to Implementation</h2>
-            <p className="text-muted-foreground">
-               I specialize in frontend development using <span className="text-primary font-semibold">React</span> and <span className="text-primary font-semibold">Next.js</span>, 
-               with a strong passion for crafting dynamic and responsive web 
-               applications. Additionally, I have experience in backend development 
-               using <span className="text-primary font-semibold">Node.js</span> and <span className="text-primary font-semibold">Express js</span>. 
-            </p>
-            <p className="text-muted-foreground mt-3">
-               To complement my technical skills, I also have little experience in 
-               UI design using <span className="text-primary font-semibold">Figma</span>,
-               allowing me to create visually appealing and user-friendly interfaces.
-            </p>
-         </div>
-         <div className="flex flex-wrap gap-4 sm:gap-8">
+      <section className="py-8 items-center">
+         <h1 className="text-[22px] font-medium tracking-tight mb-4">Hi, I&apos;m Raheem</h1>
+         <p className="text-muted-foreground mb-6">
+            I&apos;m a Full Stack Developer. I design and build products that feel simple, 
+            purposeful, and thoughtfully crafted.
+            I focus on clear interactions, clean 
+            architecture, and small details that often go 
+            unnoticed — but add up to a better experience.
+         </p>
+         <p className="text-muted-foreground">
+            I like making things that work well and feel good to use. 
+            I usually build everything in code, and I&apos;ve worked 
+            on a few freelance and personal projects along the way.
+         </p>
+         <div className="flex flex-wrap gap-4 sm:gap-6 mt-8">
             <Button size="sm" className="max-sm:h-8 rounded-full px-4 flex items-center gap-1 font-semibold">
                Resume
-               <ArrowDownToLine className="w-3 h-3" strokeWidth={1.6}/>
+               <SiReaddotcv className="w-3 h-3" strokeWidth={1} />
             </Button>
             <ul className="flex flex-wrap gap-2">
                {Socials.map((social) => (
-                  <li 
-                     key={social.title} 
-                     className="size-8 sm:size-9 overflow-hidden bg-secondary rounded-full text-secondary-foreground hover:bg-secondary/80"
-                  >
-                     <a aria-label={`link to my ${social.title} account`} href={social.link} className="size-8 sm:size-9 grid place-content-center">
+                  <li key={social.title}>
+                     <Link 
+                        aria-label={`link to my ${social.title} account`} 
+                        href={social.link}
+                        className={buttonVariants({ className: "rounded-full border", variant: "outline", size: "icon" })}
+                     >
                         {social.icon}
-                     </a>
+                     </Link>
                   </li>
                ))}
             </ul>

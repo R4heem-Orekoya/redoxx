@@ -5,7 +5,7 @@ const CodeBlock = async ({ code, language }: { code: string, language: string })
    const lang = language === "golang" ? "go" : language
    const html = await codeToHtml(code, {
       lang,
-      theme: 'tokyo-night', //one-dark-pro, tokyo-night, poimandres
+      theme: 'poimandres', //one-dark-pro, tokyo-night, poimandres
    });
 
    return (
