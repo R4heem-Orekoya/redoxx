@@ -5,11 +5,11 @@ const CodeBlock = async ({ code, language }: { code: string, language: string })
    const lang = language === "golang" ? "go" : language
    const html = await codeToHtml(code, {
       lang,
-      theme: 'poimandres', //one-dark-pro, tokyo-night, poimandres
+      theme: 'dark-plus', //one-dark-pro, tokyo-night, poimandres, tokyo-night
    });
 
    return (
-      <ScrollArea className="w-full rounded-md">
+      <ScrollArea className="w-full rounded-md border border-border">
          <div className="shiki-div overflow-x-auto" dangerouslySetInnerHTML={{ __html: html }} />
          <ScrollBar orientation="horizontal" />
       </ScrollArea>
