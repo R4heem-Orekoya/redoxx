@@ -4,7 +4,7 @@ import { useTheme } from "next-themes"
 import { MoonIcon, SunIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 
-export function ModeToggle() {
+export function ThemeToggle() {
    const { setTheme, resolvedTheme } = useTheme()
    const [mounted, setMounted] = useState(false)
    
@@ -21,6 +21,7 @@ export function ModeToggle() {
          onClick={() => {
             setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
          }}
+         className="cursor-pointer"
          aria-label="theme toggle"
       >
          {resolvedTheme === 'dark' ? (

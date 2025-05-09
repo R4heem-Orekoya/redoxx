@@ -1,13 +1,11 @@
-import Logo from "./Logo"
-import { ModeToggle } from "./theme-toggle"
+import Logo from "./logo";
+import { ThemeToggle } from "./theme-toggle";
 
-const Navbar = () => {
+export default function Navbar() {
    return (
-      <nav className="container max-w-3xl h-20 mx-auto flex justify-between items-center">
+      <nav className="container max-w-3xl px-6 h-20 mx-auto flex justify-between items-center">
          <Logo />
-         <ModeToggle />
+         <ThemeToggle />
       </nav>
    )
 }
-
-export default Navbar

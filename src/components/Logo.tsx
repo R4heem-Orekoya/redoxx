@@ -5,8 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-const Logo = () => {
-   const { resolvedTheme } = useTheme()
+export default function Logo() {
+const { resolvedTheme } = useTheme()
    const [mounted, setMounted] = useState(false)
    
    useEffect(() => {
@@ -29,5 +29,3 @@ const Logo = () => {
       </Link>
    )
 }
-
-export default Logo
