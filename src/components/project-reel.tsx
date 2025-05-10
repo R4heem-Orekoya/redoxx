@@ -7,10 +7,12 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
 import { urlFor } from "@/sanity/lib/image"
 
-export default async function ProjectReel() {
-   const { data: projects } = await sanityFetch({
+export default async function ProjectReel({ perPage }: { perPage?: number}) {
+   const { data } = await sanityFetch({
       query: projectsQuery
    })
+   
+   const projects = perPage ? data.slice(0, perPage) : data
 
    return (
       <ul className="grid col-span-1 md:grid-cols-2 gap-3 max-w-full">
@@ -19,7 +21,7 @@ export default async function ProjectReel() {
                <div className="flex justify-between items-center">
                   <div className="flex gap-3 items-center">
                      <img src={urlFor(project.projectLogo!).url()} alt={`${project.title} logo image`} className="size-6 border rounded" />
-                     <Link href={`/project/${project.slug?.current}`} className="text-sm group-hover:text-muted-foreground hover:underline underline-offset-4 decoration-muted-foreground decoration-dotted">
+                     <Link href={`/projects/${project.slug?.current}`} className="text-sm group-hover:text-muted-foreground hover:underline underline-offset-4 decoration-muted-foreground decoration-dotted">
                         {project.title}
                      </Link>
                   </div>
@@ -41,7 +43,7 @@ export default async function ProjectReel() {
                      {project.techStack?.map((stack) => (
                         <Badge key={stack.name} variant="outline" className="gap-1.5 whitespace-nowrap">
                            <div className="size-4 grid place-items-center">
-                              <img src={urlFor(stack.logo!).url()} alt={`${stack.name} logo`} className="object-contain rounded-xs" /> 
+                              <img src={urlFor(stack.logo!).url()} className="object-contain rounded-xs" /> 
                            </div>
                            {stack.name}
                         </Badge>

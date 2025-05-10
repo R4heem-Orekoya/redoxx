@@ -4,7 +4,7 @@ import { PreviewProps } from "sanity";
 
 export function TableWidget(props: TableValueProps & PreviewProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { table, caption, actions, ...rest } = props;
+  const { table, caption, title, ...rest } = props;
   const tablePreviewProps = { ...rest, rows: table?.rows || [] };
 
   return (

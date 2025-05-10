@@ -68,6 +68,69 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Blog = {
+  _id: string;
+  _type: "blog";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  excerpt?: string;
+  datePublished?: string;
+  thumbnail?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  slug?: Slug;
+  tags?: Array<string>;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  } | {
+    _key: string;
+  } & Code | {
+    _key: string;
+  } & Youtube | {
+    _key: string;
+  } & CustomTable>;
+};
+
 export type Youtube = {
   _type: "youtube";
   title?: string;
@@ -118,6 +181,7 @@ export type Project = {
   techStack?: Array<{
     _key: string;
   } & TechStack>;
+  tags?: Array<string>;
   description?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -297,11 +361,11 @@ export type Code = {
   highlightedLines?: Array<number>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Youtube | CustomTable | Project | Slug | TechStack | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Table | TableRow | Code;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Blog | Youtube | CustomTable | Project | Slug | TechStack | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Table | TableRow | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: projectsQuery
-// Query: *[_type == "project"]{  _id, title, slug, projectLogo,   githubLink, siteLink, excerpt,   thumbnail {    "image": asset->url,    "lqip": asset->metadata.lqip  }, techStack, description}
+// Query: *[_type == "project"]{  _id, title, slug, projectLogo,   githubLink, siteLink, excerpt,   thumbnail {    asset->{      url,      metadata {        lqip      }    }  }, techStack, description}
 export type ProjectsQueryResult = Array<{
   _id: string;
   title: string | null;
@@ -322,8 +386,12 @@ export type ProjectsQueryResult = Array<{
   siteLink: string | null;
   excerpt: string | null;
   thumbnail: {
-    image: string | null;
-    lqip: string | null;
+    asset: {
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
   } | null;
   techStack: Array<{
     _key: string;
@@ -367,15 +435,183 @@ export type ProjectsQueryResult = Array<{
     _key: string;
   }> | null;
 }>;
-// Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0]{  title, body, mainImage}
-export type POST_QUERYResult = null;
+// Variable: blogsQuery
+// Query: *[_type == "blog"] | order(datePublished desc) {  _id,  title,  excerpt,  datePublished,  thumbnail {      asset->{        url,        metadata {          lqip        }      }  },  slug,  content}
+export type BlogsQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  excerpt: string | null;
+  datePublished: string | null;
+  thumbnail: {
+    asset: {
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
+  } | null;
+  slug: Slug | null;
+  content: Array<{
+    _key: string;
+  } & Code | {
+    _key: string;
+  } & CustomTable | {
+    _key: string;
+  } & Youtube | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+}>;
+// Variable: blogQuery
+// Query: *[_type == "blog" && slug.current == $slug][0] {  _id,  title,  excerpt,  thumbnail {    asset->{      url,      metadata {        lqip      }    }  },  tags,  datePublished,  content}
+export type BlogQueryResult = {
+  _id: string;
+  title: string | null;
+  excerpt: string | null;
+  thumbnail: {
+    asset: {
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
+  } | null;
+  tags: Array<string> | null;
+  datePublished: string | null;
+  content: Array<{
+    _key: string;
+  } & Code | {
+    _key: string;
+  } & CustomTable | {
+    _key: string;
+  } & Youtube | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+} | null;
+// Variable: projectQuery
+// Query: *[_type == "project" && slug.current == $slug] [0] {  _id,  title,  excerpt,  thumbnail {    asset->{      url,      metadata {        lqip      }    }  },  tags,  description,  techStack,  githubLink,  siteLink,}
+export type ProjectQueryResult = {
+  _id: string;
+  title: string | null;
+  excerpt: string | null;
+  thumbnail: {
+    asset: {
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
+  } | null;
+  tags: Array<string> | null;
+  description: Array<{
+    _key: string;
+  } & Code | {
+    _key: string;
+  } & CustomTable | {
+    _key: string;
+  } & Youtube | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  techStack: Array<{
+    _key: string;
+  } & TechStack> | null;
+  githubLink: string | null;
+  siteLink: string | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"project\"]{\n  _id, title, slug, projectLogo, \n  githubLink, siteLink, excerpt, \n  thumbnail {\n    \"image\": asset->url,\n    \"lqip\": asset->metadata.lqip\n  }, techStack, description\n}": ProjectsQueryResult;
-    "*[_type == \"post\" && slug.current == $slug][0]{\n  title, body, mainImage\n}": POST_QUERYResult;
+    "*[_type == \"project\"]{\n  _id, title, slug, projectLogo, \n  githubLink, siteLink, excerpt, \n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  }, techStack, description\n}": ProjectsQueryResult;
+    "*[_type == \"blog\"] | order(datePublished desc) {\n  _id,\n  title,\n  excerpt,\n  datePublished,\n  thumbnail {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      }\n  },\n  slug,\n  content\n}": BlogsQueryResult;
+    "*[_type == \"blog\" && slug.current == $slug][0] {\n  _id,\n  title,\n  excerpt,\n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  },\n  tags,\n  datePublished,\n  content\n}": BlogQueryResult;
+    "*[_type == \"project\" && slug.current == $slug] [0] {\n  _id,\n  title,\n  excerpt,\n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  },\n  tags,\n  description,\n  techStack,\n  githubLink,\n  siteLink,\n}": ProjectQueryResult;
   }
 }
