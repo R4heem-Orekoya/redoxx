@@ -1,5 +1,6 @@
 import { components } from "@/components/portable-text"
 import { Badge } from "@/components/ui/badge"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { resolveOpenGraphImage } from "@/lib/utils"
 import { urlFor } from "@/sanity/lib/image"
 import { sanityFetch } from "@/sanity/lib/live"
@@ -77,16 +78,19 @@ export default async function Page({ params }: Props) {
 
         <section>
           <h1 className="pt-8 pb-4 text-xl md:text-2xl lg:text-3xl font-medium">{project.title}</h1>
-          <div className="flex items-start gap-2">
-            {project.techStack?.map((stack) => (
-              <Badge key={stack.name} variant="outline" className="gap-1.5 whitespace-nowrap">
-                <div className="size-4 grid place-items-center">
-                  <img src={urlFor(stack.logo!).url()} alt={`${stack.name} logo`} className="object-contain rounded-xs" />
-                </div>
-                {stack.name}
-              </Badge>
-            ))}
-          </div>
+          <ScrollArea className="pb-1.5">
+            <div className="flex gap-2 items-center">
+              {project.techStack?.map((stack) => (
+                <Badge key={stack.name} variant="outline" className="gap-1.5 whitespace-nowrap">
+                  <div className="size-4 grid place-items-center">
+                    <img src={urlFor(stack.logo!).url()} className="object-contain rounded-xs" />
+                  </div>
+                  {stack.name}
+                </Badge>
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
 
           <div className="py-6 prose prose-violet prose-img:aspect-video prose-img:border prose-img:object-cover sm:prose-lg prose-p:font-light prose-ul:font-light dark:prose-invert">
             <PortableText
