@@ -25,7 +25,6 @@ export function timeToRead(words: string) {
 
 export function resolveOpenGraphImage(image: SanityImageSource, width = 1200, height = 627) {
   if (!image) return;
-  console.log(image);
   const url = urlFor(image)?.width(1200).height(627).fit("crop").url();
   if (!url) return;
   return { url, width, height };
