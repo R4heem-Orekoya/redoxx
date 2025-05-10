@@ -8,7 +8,7 @@ export default async function Projects() {
          <div className="mb-6 flex items-center justify-between">
             <h2 className="text-lg font-medium">Projects</h2>
             
-            <Link href="blogs" className="text-sm flex items-center gap-2 hover:text-muted-foreground">
+            <Link href="/projects" className="text-sm flex items-center gap-2 hover:text-muted-foreground">
                See All
                <ArrowRight className="w-4 h-4"/>
             </Link>
