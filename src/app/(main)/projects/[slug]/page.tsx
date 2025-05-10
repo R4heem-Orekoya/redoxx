@@ -101,11 +101,11 @@ export default async function Page({ params }: Props) {
 
           <h4 className="mt-8 text-xl font-semibold">Project Links</h4>
           <div className="flex gap-4 mt-4">
-            <a aria-label={`link to ${project.title} prject github repo`} href={project.githubLink!} className="hover:opacity-70 flex items-center gap-2 text-sm duration-300">
+            <a aria-label={`link to ${project.title} prject github repo`} href={project.githubLink!} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 flex items-center gap-2 text-sm duration-300">
               <SiGithub className="w-4 h-4" strokeWidth={1} />
               Github
             </a>
-            <a aria-label={`link to ${project.title} prject live demo`} href={project.siteLink!} className="hover:opacity-70 flex items-center gap-2 text-sm duration-300">
+            <a aria-label={`link to ${project.title} prject live demo`} href={project.siteLink!} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 flex items-center gap-2 text-sm duration-300">
               <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
               Live Preview
             </a>
