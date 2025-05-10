@@ -61,7 +61,7 @@ export default async function Page({ params }: Props) {
     <main>
       <section className="py-12">
         <h2 className="pb-2 text-2xl md:text-3xl font-medium">{blog.title}</h2>
-        <p className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+        <p className="flex items-center gap-2 text-sm text-muted-foreground">
           <span>{formatDate(blog.datePublished!)}</span> .
           <span>{timeToRead(toPlainText(blog.content!))} min read</span>
         </p>

@@ -18,7 +18,7 @@ export default async function ProjectReel({ perPage }: { perPage?: number}) {
    return (
       <ul className="grid col-span-1 md:grid-cols-2 gap-3 max-w-full">
          {projects && projects.map((project) => (
-            <li key={project._id} className="col-span-1 px-3 py-4 border rounded-lg overflow-hidden">
+            <li key={project._id} className="col-span-1 px-3 pt-4 pb-2.5 border rounded-lg overflow-hidden">
                <div className="flex justify-between items-center">
                   <div className="flex gap-3 items-center">
                      <img src={urlFor(project.projectLogo!).url()} alt={`${project.title} logo image`} className="size-6 border rounded" />

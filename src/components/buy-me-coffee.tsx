@@ -13,7 +13,7 @@ export default function Buymecoffee() {
    return (
       <>
          {shouldShow && (
-            <Button size="icon" className="h-12 w-12 text-2xl bg-purple-500 hover:bg-purple-400 fixed bottom-6 right-6 md:bottom-8 md:right-8" asChild>
+            <Button size="icon" className="h-12 w-12 text-2xl bg-purple-500 hover:bg-purple-400 fixed bottom-6 right-6 md:bottom-8 md:right-8 max-sm:hidden " asChild>
                <a onClick={() => {
                   posthog.capture('clicked_buyme_coffee_btn', { page: pathname })
                }}
