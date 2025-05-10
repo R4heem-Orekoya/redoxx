@@ -9,7 +9,8 @@ import { urlFor } from "@/sanity/lib/image"
 
 export default async function ProjectReel({ perPage }: { perPage?: number}) {
    const { data } = await sanityFetch({
-      query: projectsQuery
+      query: projectsQuery,
+      tags: ["project"]
    })
    
    const projects = perPage ? data.slice(0, perPage) : data

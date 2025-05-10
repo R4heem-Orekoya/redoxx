@@ -15,6 +15,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
   const { data: blog } = await sanityFetch({
     query: blogQuery,
     params,
+    tags: ["blog"]
   })
 
   if (!blog || !blog._id) {

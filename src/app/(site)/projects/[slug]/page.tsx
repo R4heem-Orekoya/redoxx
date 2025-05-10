@@ -20,6 +20,7 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
   const { data: project } = await sanityFetch({
     query: projectQuery,
     params,
+    tags: ["project"]
   })
 
   if (!project || !project._id) {

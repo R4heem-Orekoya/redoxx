@@ -10,7 +10,7 @@ export const projectsQuery = defineQuery(`*[_type == "project"]{
         lqip
       }
     }
-  }, techStack, description
+  }, techStack, description, _updatedAt
 }`)
 
 export const blogsQuery = defineQuery(`*[_type == "blog"] | order(datePublished desc) {
@@ -27,7 +27,7 @@ export const blogsQuery = defineQuery(`*[_type == "blog"] | order(datePublished 
       }
   },
   slug,
-  content
+  content, _updatedAt
 }`)
 
 export const blogQuery = defineQuery(`*[_type == "blog" && slug.current == $slug][0] {

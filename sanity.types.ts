@@ -365,7 +365,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: projectsQuery
-// Query: *[_type == "project"]{  _id, title, slug, projectLogo,   githubLink, siteLink, excerpt,   thumbnail {    asset->{      url,      metadata {        lqip      }    }  }, techStack, description}
+// Query: *[_type == "project"]{  _id, title, slug, projectLogo,   githubLink, siteLink, excerpt,   thumbnail {    asset->{      url,      metadata {        lqip      }    }  }, techStack, description, _updatedAt}
 export type ProjectsQueryResult = Array<{
   _id: string;
   title: string | null;
@@ -434,9 +434,10 @@ export type ProjectsQueryResult = Array<{
     _type: "image";
     _key: string;
   }> | null;
+  _updatedAt: string;
 }>;
 // Variable: blogsQuery
-// Query: *[_type == "blog"] | order(datePublished desc) {  _id,  title,  excerpt,  datePublished,  thumbnail {      asset->{        url,        metadata {          lqip        }      }  },  slug,  content}
+// Query: *[_type == "blog"] | order(datePublished desc) {  _id,  title,  excerpt,  datePublished,  thumbnail {      asset->{        url,        metadata {          lqip        }      }  },  slug,  content, _updatedAt}
 export type BlogsQueryResult = Array<{
   _id: string;
   title: string | null;
@@ -489,6 +490,7 @@ export type BlogsQueryResult = Array<{
     _type: "image";
     _key: string;
   }> | null;
+  _updatedAt: string;
 }>;
 // Variable: blogQuery
 // Query: *[_type == "blog" && slug.current == $slug][0] {  _id,  title,  excerpt,  thumbnail {    asset->{      url,      metadata {        lqip      }    }  },  tags,  datePublished,  content}
@@ -609,8 +611,8 @@ export type ProjectQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"project\"]{\n  _id, title, slug, projectLogo, \n  githubLink, siteLink, excerpt, \n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  }, techStack, description\n}": ProjectsQueryResult;
-    "*[_type == \"blog\"] | order(datePublished desc) {\n  _id,\n  title,\n  excerpt,\n  datePublished,\n  thumbnail {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      }\n  },\n  slug,\n  content\n}": BlogsQueryResult;
+    "*[_type == \"project\"]{\n  _id, title, slug, projectLogo, \n  githubLink, siteLink, excerpt, \n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  }, techStack, description, _updatedAt\n}": ProjectsQueryResult;
+    "*[_type == \"blog\"] | order(datePublished desc) {\n  _id,\n  title,\n  excerpt,\n  datePublished,\n  thumbnail {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      }\n  },\n  slug,\n  content, _updatedAt\n}": BlogsQueryResult;
     "*[_type == \"blog\" && slug.current == $slug][0] {\n  _id,\n  title,\n  excerpt,\n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  },\n  tags,\n  datePublished,\n  content\n}": BlogQueryResult;
     "*[_type == \"project\" && slug.current == $slug] [0] {\n  _id,\n  title,\n  excerpt,\n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  },\n  tags,\n  description,\n  techStack,\n  githubLink,\n  siteLink,\n}": ProjectQueryResult;
   }

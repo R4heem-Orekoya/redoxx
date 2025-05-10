@@ -7,7 +7,8 @@ import React from 'react'
 
 export default async function BlogReel({ perPage }: { perPage?: number}) {
    const { data } = await sanityFetch({
-      query: blogsQuery
+      query: blogsQuery,
+      tags: ["blog"]
    })
    
    const blogs = perPage ? data.slice(0, perPage) : data
