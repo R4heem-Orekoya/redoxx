@@ -17,8 +17,8 @@ export const components: PortableTextComponents = {
       image: ({ value }) => {
          const imageUrl = urlFor(value)?.auto("format").url();
          if (!imageUrl) return null;
-         
-      return(
+
+         return (
             <figure>
                <div className="relative w-full aspect-video overflow-hidden rounded-md mt-6">
                   <Image
@@ -31,9 +31,9 @@ export const components: PortableTextComponents = {
                   />
                </div>
                {value.caption && (
-               <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-                  {value.caption}
-               </figcaption>
+                  <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+                     {value.caption}
+                  </figcaption>
                )}
             </figure>
          )
@@ -42,7 +42,7 @@ export const components: PortableTextComponents = {
          <Table value={value} />
       ),
       youtube: ({ value }: { value: { url: string } }) => {
-         return <VideoPlayer url={value.url}/>
+         return <VideoPlayer url={value.url} />
       },
    },
 
@@ -51,29 +51,29 @@ export const components: PortableTextComponents = {
          <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>
       ),
       h1: ({ children }) => (
-         <h1 className="text-2xl font-semibold tracking-tight scroll-m-20">{children}</h1>
+         <h1 className="scroll-m-20 text-center text-3xl font-semibold tracking-tight text-balance">{children}</h1>
       ),
       h2: ({ children }) => (
-         <h2 className="text-xl font-medium tracking-tight scroll-m-20 mt-10 border-b pb-3">{children}</h2>
+         <h2 className="scroll-m-20 border-b mt-8 pb-3 text-2xl font-medium tracking-tight first:mt-0">{children}</h2>
       ),
       h3: ({ children }) => (
-         <h3 className="text-lg font-medium tracking-tight scroll-m-20 mt-8">{children}</h3>
+         <h3 className="scroll-m-20 text-xl font-medium tracking-tight">{children}</h3>
       ),
       h4: ({ children }) => (
-         <h4 className="text-base font-medium tracking-tight scroll-m-20 mt-8">{children}</h4>
+         <h4 className="scroll-m-20 text-lg font-medium tracking-tight">{children}</h4>
       ),
       blockquote: ({ children }) => (
          <div className="mt-6 p-2 border rounded-lg flex items-center gap-4">
             <blockquote className="my-0 pl-3 border-l-[5px] border-foreground rounded text-muted-foreground flex-1">
                {children}
-            </blockquote>  
+            </blockquote>
          </div>
       ),
    },
 
    list: {
       bullet: ({ children }) => (
-         <ul className="my-6 ml-6 list-disc  [&>li]:mt-3">{children}</ul>
+         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>
       ),
       number: ({ children }) => (
          <ol className="my-6 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
@@ -90,13 +90,13 @@ export const components: PortableTextComponents = {
                href={href}
                target={isExternal ? "_blank" : undefined}
                rel={isExternal ? "noopener noreferrer" : undefined}
-               className="underline underline-offset-4 text-purple-500 hover:opacity-80"
+               className="underline underline-offset-2 decoration-purple-600 hover:opacity-80"
             >
                {children}
             </Link>
          );
       },
-      strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+      strong: ({ children }) => <strong className="font-bold">{children}</strong>,
       em: ({ children }) => <em className="italic">{children}</em>,
       code: ({ children }) => <code className="px-2 py-1 rounded border bg-secondary before:hidden after:hidden">{children}</code>
    },

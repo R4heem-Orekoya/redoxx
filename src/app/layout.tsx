@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import "./globals.css";
 import "./prism.css"
 
@@ -56,10 +56,15 @@ const inter = Inter({
    variable: '--font-inter',
 })
 
+const fira = JetBrains_Mono({
+   subsets: ['latin'],
+   variable: '--font-jetbrain',
+})
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
    return (
       <html lang="en" suppressHydrationWarning>
-         <body className={`${inter.variable} antialiased`}>{children}</body>
+         <body className={`${inter.variable} ${fira.variable} antialiased`}>{children}</body>
       </html>
    )
 }

@@ -2,9 +2,10 @@ import { components } from "@/components/portable-text"
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { resolveOpenGraphImage } from "@/lib/utils"
+import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
 import { sanityFetch } from "@/sanity/lib/live"
-import { projectQuery } from "@/sanity/lib/queries"
+import { projectQuery, projectsQuery } from "@/sanity/lib/queries"
 import { ExternalLink } from "lucide-react"
 import { Metadata, ResolvingMetadata } from "next"
 import { PortableText } from "next-sanity"
@@ -14,6 +15,12 @@ import { SiGithub } from "react-icons/si"
 
 interface Props {
   params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  const data = await client.fetch(projectsQuery)
+
+  return data.map(project => project.slug as unknown as string)
 }
 
 export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {

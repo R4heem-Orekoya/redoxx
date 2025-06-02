@@ -1,13 +1,20 @@
 import { components } from "@/components/portable-text"
 import { formatDate, resolveOpenGraphImage, timeToRead } from "@/lib/utils"
+import { client } from "@/sanity/lib/client"
 import { sanityFetch } from "@/sanity/lib/live"
-import { blogQuery } from "@/sanity/lib/queries"
+import { blogQuery, blogsQuery } from "@/sanity/lib/queries"
 import { Metadata, ResolvingMetadata } from "next"
 import { PortableText, toPlainText } from "next-sanity"
 import { notFound } from "next/navigation"
 
 interface Props {
   params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  const data = await client.fetch(blogsQuery)
+  
+  return data.map((post) => post.slug as unknown as string)
 }
 
 export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
@@ -66,7 +73,7 @@ export default async function Page({ params }: Props) {
           <span>{timeToRead(toPlainText(blog.content!))} min read</span>
         </p>
 
-        <div className="py-6 dark:prose-invert">
+        <div className="py-6 dark:prose-invert prose">
           <PortableText
             value={blog.content!}
             components={components}

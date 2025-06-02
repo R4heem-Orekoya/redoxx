@@ -16,10 +16,13 @@ import graphql from "refractor/graphql";
 import json from "refractor/json";
 import java from "refractor/java";
 import go from "refractor/go"
+import c from "refractor/c"
+import cpp from "refractor/cpp"
 import Clipboard from "./clip-board";
 
-// Supported languages: https://prismjs.com/#supported-languages
 registerLanguage(js);
+registerLanguage(c);
+registerLanguage(cpp);
 registerLanguage(go)
 registerLanguage(rust)
 registerLanguage(ts);
@@ -50,13 +53,13 @@ export default function CodeBlock({ value }: codeTypes) {
    return (
       <div className="my-6">
          <div className="flex items-center justify-between border bg-secondary text-secondary-foreground rounded-t-lg px-4 py-3 translate-y-2">
-            {value.filename && <p className="text-sm">{value.filename}</p>}
+            {value.filename && <p className="text-sm font-jetbrain">{value.filename}</p>}
             <Clipboard content={value.code} />
          </div>
          <Refractor
             language={lang ?? "jsx"}
             value={value.code}
-            className="text-sm p-4 bg-background border-x border-b rounded-b-lg tracking-normal"
+            className="font-jetbrain text-sm p-4 bg-background border-x border-b rounded-b-lg tracking-normal"
          />
       </div>
    )
