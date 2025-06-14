@@ -162,6 +162,18 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  projectLogoLight?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   githubLink?: string;
   siteLink?: string;
   excerpt?: string;
@@ -232,6 +244,18 @@ export type TechStack = {
   _type: "techStack";
   name?: string;
   logo?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  logoLight?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -365,12 +389,24 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: projectsQuery
-// Query: *[_type == "project"]{  _id, title, slug, projectLogo,   githubLink, siteLink, excerpt,   thumbnail {    asset->{      url,      metadata {        lqip      }    }  }, techStack, description, _updatedAt}
+// Query: *[_type == "project"]{  _id, title, slug, projectLogo, projectLogoLight,  githubLink, siteLink, excerpt,   thumbnail {    asset->{      url,      metadata {        lqip      }    }  }, techStack, description, _updatedAt}
 export type ProjectsQueryResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
   projectLogo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  projectLogoLight: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -611,7 +647,7 @@ export type ProjectQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"project\"]{\n  _id, title, slug, projectLogo, \n  githubLink, siteLink, excerpt, \n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  }, techStack, description, _updatedAt\n}": ProjectsQueryResult;
+    "*[_type == \"project\"]{\n  _id, title, slug, projectLogo, projectLogoLight,\n  githubLink, siteLink, excerpt, \n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  }, techStack, description, _updatedAt\n}": ProjectsQueryResult;
     "*[_type == \"blog\"] | order(datePublished desc) {\n  _id,\n  title,\n  excerpt,\n  datePublished,\n  thumbnail {\n      asset->{\n        url,\n        metadata {\n          lqip\n        }\n      }\n  },\n  slug,\n  content, _updatedAt\n}": BlogsQueryResult;
     "*[_type == \"blog\" && slug.current == $slug][0] {\n  _id,\n  title,\n  excerpt,\n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  },\n  tags,\n  datePublished,\n  content\n}": BlogQueryResult;
     "*[_type == \"project\" && slug.current == $slug] [0] {\n  _id,\n  title,\n  excerpt,\n  thumbnail {\n    asset->{\n      url,\n      metadata {\n        lqip\n      }\n    }\n  },\n  tags,\n  description,\n  techStack,\n  githubLink,\n  siteLink,\n}": ProjectQueryResult;

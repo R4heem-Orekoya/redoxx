@@ -20,5 +20,13 @@ export const techStack = defineType({
          },
          validation: Rule => Rule.required()
       }),
+      defineField({
+         name: "logoLight",
+         title: "Technology Light",
+         type: "image",
+         options: {
+            hotspot: true,
+         },
+      }),
    ]
 })

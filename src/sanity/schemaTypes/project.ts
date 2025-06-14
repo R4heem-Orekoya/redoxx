@@ -20,6 +20,11 @@ export const project = defineType({
          validation: (Rule) => Rule.required()
       }),
       defineField({
+         title: 'Project Logo Light',
+         name: 'projectLogoLight',
+         type: 'image',
+      }),
+      defineField({
          title: "Github Link",
          name: "githubLink",
          type: "url",

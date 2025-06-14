@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 
 export const projectsQuery = defineQuery(`*[_type == "project"]{
-  _id, title, slug, projectLogo, 
+  _id, title, slug, projectLogo, projectLogoLight,
   githubLink, siteLink, excerpt, 
   thumbnail {
     asset->{

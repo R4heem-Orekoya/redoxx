@@ -1,5 +1,5 @@
 import { components } from "@/components/portable-text"
-import { Badge } from "@/components/ui/badge"
+import TechStackBadge from "@/components/tech-stack-badge"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { resolveOpenGraphImage } from "@/lib/utils"
 import { client } from "@/sanity/lib/client"
@@ -88,12 +88,7 @@ export default async function Page({ params }: Props) {
           <ScrollArea className="pb-1.5">
             <div className="flex gap-2 items-center">
               {project.techStack?.map((stack) => (
-                <Badge key={stack.name} variant="outline" className="gap-1.5 whitespace-nowrap">
-                  <div className="size-4 grid place-items-center">
-                    <img src={urlFor(stack.logo!).url()} className="object-contain rounded-xs" />
-                  </div>
-                  {stack.name}
-                </Badge>
+                <TechStackBadge stack={stack} key={stack._key} />
               ))}
             </div>
             <ScrollBar orientation="horizontal" />
