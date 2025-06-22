@@ -1,5 +1,5 @@
 import { socials } from "@/lib/constants";
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { SiReaddotcv } from "react-icons/si"
 import Link from "next/link"
 
@@ -16,11 +16,13 @@ export default function Intro() {
             I build everything in code and have worked on a range of freelance and personal projects that reflect this approach.
          </p>
          <div className="flex items-center flex-wrap gap-4 sm:gap-6 mt-8">
-            <Link href={process.env.NEXT_PUBLIC_RESUME_LINK!} target="_blank">
-               <Button asChild className="rounded-3xl flex items-center gap-1 font-semibold cursor-pointer">
-                  Resume
-                  <SiReaddotcv className="w-3 h-3" strokeWidth={0.5} />
-               </Button>
+            <Link
+               href={process.env.NEXT_PUBLIC_RESUME_LINK!}
+               target="_blank"
+               className={buttonVariants({ className: "rounded-3xl flex items-center gap-1 font-semibold cursor-pointer" })}
+            >
+               Resume
+               <SiReaddotcv className="w-3 h-3" strokeWidth={0.5} />
             </Link>
             <ul className="flex flex-wrap gap-2">
                {socials.map((social) => (
