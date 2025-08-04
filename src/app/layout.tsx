@@ -4,8 +4,8 @@ import "./globals.css";
 import "./prism.css"
 
 export const metadata: Metadata = {
-   title: "Raheem Orekoya - Frontend Web Developer",
-   description: "Raheem Orekoya is a skilled frontend web developer specializing in modern technologies like React, Next.js, Node.js, Hono.js and TypeScript.",
+   title: "Raheem Orekoya - Frontend Engineer",
+   description: "Raheem Orekoya is a skilled Frontend Engineer specializing in modern technologies like React, Next.js, Node.js, Hono.js and TypeScript.",
    keywords: [
       "Raheem Orekoya",
       "Babatunde Orekoya",
@@ -29,26 +29,6 @@ export const metadata: Metadata = {
       "Modern Web Development",
       "Custom Web Applications"
    ],
-   openGraph: {
-      type: "website",
-      title: "Raheem Orekoya - Frontend Web Developer",
-      description: "Discover Raheem Orekoya's expertise in frontend web development, creating dynamic web applications with React, Node.js, Hono.js and TypeScript.",
-      url: process.env.NEXT_PUBLIC_SITE_DOMAIN,
-      images: [
-         {
-            url: process.env.NEXT_PUBLIC_OG_IMAGE!,
-            width: 1200,
-            height: 630,
-            alt: "Raheem Orekoya - Frontend Web Developer"
-         }
-      ]
-   },
-   twitter: {
-      card: "summary_large_image",
-      title: "Raheem Orekoya - Frontend Web Developer",
-      description: "Discover Raheem Orekoya's expertise in frontend web development, creating dynamic web applications with React, Node.js, and TypeScript.",
-      images: [process.env.NEXT_PUBLIC_OG_IMAGE!]
-   }
 };
 
 const inter = Inter({

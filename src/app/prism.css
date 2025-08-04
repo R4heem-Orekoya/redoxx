@@ -14,8 +14,8 @@
 
 .dark {
   --lang-color: #ffffff;
-  --lang-background: hsl(0 0% 5.5%);
-  --text-shadow: #18181b;
+  --lang-background: hsl(0 0% 4.5%);
+  --text-shadow: hsl(0 0% 4.5%);
   --selection-shade: hsl( 0 0% 98%);
   --accent-1: #4ab7ff;
   --accent-2: #b4f72f;

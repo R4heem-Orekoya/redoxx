@@ -36,47 +36,55 @@ export const components: PortableTextComponents = {
                   </figcaption>
                )}
             </figure>
-         )
+         );
       },
       customTable: ({ value }: { value: TableValueProps }) => (
          <Table value={value} />
       ),
       youtube: ({ value }: { value: { url: string } }) => {
-         return <VideoPlayer url={value.url} />
+         return <VideoPlayer url={value.url} />;
       },
    },
 
    block: {
       normal: ({ children }) => (
-         <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>
+         <p className="leading-relaxed mt-4 text-muted-foreground">
+            {children}
+         </p>
       ),
       h1: ({ children }) => (
-         <h1 className="scroll-m-20 text-center text-3xl font-semibold tracking-tight text-balance">{children}</h1>
+         <h1 className="scroll-m-20 text-center text-3xl md:text-4xl font-semibold tracking-tight text-balance mt-10 mb-4">
+            {children}
+         </h1>
       ),
       h2: ({ children }) => (
-         <h2 className="scroll-m-20 border-b mt-8 pb-3 text-2xl font-medium tracking-tight first:mt-0">{children}</h2>
+         <h2 className="scroll-m-20 border-b mt-10 pb-2 text-2xl font-medium tracking-tight first:mt-0">
+            {children}
+         </h2>
       ),
       h3: ({ children }) => (
-         <h3 className="scroll-m-20 text-xl font-medium tracking-tight">{children}</h3>
+         <h3 className="scroll-m-20 text-xl mt-8 font-medium tracking-tight">
+            {children}
+         </h3>
       ),
       h4: ({ children }) => (
-         <h4 className="scroll-m-20 text-lg font-medium tracking-tight">{children}</h4>
+         <h4 className="scroll-m-20 text-lg mt-6 font-medium tracking-tight">
+            {children}
+         </h4>
       ),
       blockquote: ({ children }) => (
-         <div className="mt-6 p-2 border rounded-lg flex items-center gap-4">
-            <blockquote className="my-0 pl-3 border-l-[5px] border-foreground rounded text-muted-foreground flex-1">
-               {children}
-            </blockquote>
-         </div>
+         <blockquote className="mt-6 border-l-3 border-l-foreground pl-4 py-2 italic text-muted-foreground">
+            {children}
+         </blockquote>
       ),
    },
 
    list: {
       bullet: ({ children }) => (
-         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>
+         <ul className="my-6 ml-6 list-disc [&>li]:mt-2 text-muted-foreground">{children}</ul>
       ),
       number: ({ children }) => (
-         <ol className="my-6 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
+         <ol className="my-6 ml-6 list-decimal [&>li]:mt-2 text-muted-foreground">{children}</ol>
       ),
    },
 
@@ -96,8 +104,14 @@ export const components: PortableTextComponents = {
             </Link>
          );
       },
-      strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+      strong: ({ children }) => (
+         <strong className="font-semibold text-foreground">{children}</strong>
+      ),
       em: ({ children }) => <em className="italic">{children}</em>,
-      code: ({ children }) => <code className="px-2 py-1 rounded border bg-secondary before:hidden after:hidden">{children}</code>
+      code: ({ children }) => (
+         <code className="px-2 py-1 rounded border bg-secondary before:hidden after:hidden">
+            {children}
+         </code>
+      ),
    },
-}
+};

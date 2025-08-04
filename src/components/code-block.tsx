@@ -59,7 +59,7 @@ export default function CodeBlock({ value }: codeTypes) {
          <Refractor
             language={lang ?? "jsx"}
             value={value.code}
-            className="font-jetbrain text-sm p-4 bg-background border-x border-b rounded-b-lg tracking-normal"
+            className="font-jetbrain text-sm p-4 bg-background border-x border-b rounded-b-lg tracking-tight"
          />
       </div>
    )

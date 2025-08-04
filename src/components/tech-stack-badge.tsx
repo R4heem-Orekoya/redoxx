@@ -14,7 +14,7 @@ export default function TechStackBadge({ stack }: TechStackBadgeProps) {
    
    return (
       <Badge key={stack.name} variant="outline" className="gap-1.5 whitespace-nowrap">
-         <div className="size-4 grid place-items-center">
+         <div className="size-3 grid place-items-center">
             <img src={urlFor(resolvedTheme === "light" ? (stack.logoLight ?? stack.logo!) : stack.logo!).url()} className="object-contain rounded-xs" />
          </div>
          {stack.name}
