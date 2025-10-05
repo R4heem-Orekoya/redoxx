@@ -10,16 +10,15 @@ export default function Intro() {
             Hi, I&apos;m Raheem
          </h1>
          <p className="text-muted-foreground mb-6">
-            I&apos;m a frontend engineer who designs and builds interfaces that
-            are simple, purposeful, and a joy to use. I care deeply about the
-            small details, those subtle interactions that make an experience feel
-            intuitive and thoughtfully crafted.
+            I&apos;m a frontend engineer with design engineer DNA — I design and
+            build interfaces that are simple, purposeful, and a joy to use. I
+            care deeply about the small details, those subtle interactions that
+            make an experience feel intuitive and thoughtfully crafted.
          </p>
          <p className="text-muted-foreground">
-            I&apos;ve worked on a range of freelance and personal projects, all built
-            from the ground up in code. My goal is always the same: create
-            digital experiences that not only work beautifully but feel good to
-            use.
+            I bring ideas to life through code, from concept to polished
+            product. Every project I build is an opportunity to merge clarity,
+            speed, and design into a seamless experience.
          </p>
          <div className="flex items-center flex-wrap gap-4 sm:gap-6 mt-8">
             <Link
