@@ -20,7 +20,7 @@ export const components: PortableTextComponents = {
 
          return (
             <figure>
-               <div className="relative w-full aspect-video overflow-hidden rounded-md mt-6">
+               <div className="relative w-full aspect-video overflow-hidden rounded-lg border-[0.5px] mt-6">
                   <Image
                      src={imageUrl}
                      alt={value.alt || "Blog image"}
@@ -31,7 +31,7 @@ export const components: PortableTextComponents = {
                   />
                </div>
                {value.caption && (
-                  <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+                  <figcaption className="mt-3 mb-6 text-center text-sm text-muted-foreground">
                      {value.caption}
                   </figcaption>
                )}
@@ -81,10 +81,14 @@ export const components: PortableTextComponents = {
 
    list: {
       bullet: ({ children }) => (
-         <ul className="my-6 ml-6 list-disc [&>li]:mt-2 text-muted-foreground">{children}</ul>
+         <ul className="my-6 ml-6 list-disc [&>li]:mt-2 text-muted-foreground">
+            {children}
+         </ul>
       ),
       number: ({ children }) => (
-         <ol className="my-6 ml-6 list-decimal [&>li]:mt-2 text-muted-foreground">{children}</ol>
+         <ol className="my-6 ml-6 list-decimal [&>li]:mt-2 text-muted-foreground">
+            {children}
+         </ol>
       ),
    },
 
@@ -109,7 +113,7 @@ export const components: PortableTextComponents = {
       ),
       em: ({ children }) => <em className="italic">{children}</em>,
       code: ({ children }) => (
-         <code className="px-2 py-1 rounded border bg-secondary before:hidden after:hidden">
+         <code className="px-1.5 py-0.5 text-sm text-foreground font-jetbrain font-medium rounded-md border bg-secondary before:hidden after:hidden">
             {children}
          </code>
       ),

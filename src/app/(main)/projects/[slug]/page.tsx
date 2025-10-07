@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
    return (
       <>
          <main>
-            <div className="relative w-full aspect-[16/9] border border-border/40 rounded-xl overflow-hidden mt-8 p-4">
+            <div className="relative w-full aspect-[16/9] border-[0.5px] rounded-lg overflow-hidden mt-8 p-4">
                <Image
                   src={
                      urlFor(project.thumbnail!)?.auto("format").url() as string
